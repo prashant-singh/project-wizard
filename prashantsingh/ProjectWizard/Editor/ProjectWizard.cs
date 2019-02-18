@@ -208,19 +208,19 @@ namespace Prashant
             EditorGUILayout.Space();
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Alias Name", new GUILayoutOption[0]);
-            EditorGUILayout.TextField(keystoreAliasName, new GUILayoutOption[0]);
+            keystoreAliasName = EditorGUILayout.TextField(keystoreAliasName, new GUILayoutOption[0]).ToLower();
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
 
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Alias Password", new GUILayoutOption[0]);
-            EditorGUILayout.TextField(keystoreAliasPass, new GUILayoutOption[0]);
+            keystoreAliasPass = EditorGUILayout.TextField(keystoreAliasPass, new GUILayoutOption[0]);
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Password", new GUILayoutOption[0]);
-            EditorGUILayout.TextField(keystorePassword, new GUILayoutOption[0]);
+            keystorePassword = EditorGUILayout.TextField(keystorePassword, new GUILayoutOption[0]);
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
             EditorGUILayout.EndVertical();
@@ -259,6 +259,8 @@ namespace Prashant
 
                 PlayerSettings.companyName = companyName;
                 PlayerSettings.productName = projectName;
+                _config.companyName = companyName;
+                _config.projectName = projectName;
                 _config.keystoreAliasName = keystoreAliasName;
                 _config.keystoreAliasPassword = keystorePassword;
                 _config.keystorePassword = keystorePassword;
