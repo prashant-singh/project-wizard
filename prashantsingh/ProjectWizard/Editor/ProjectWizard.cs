@@ -37,6 +37,7 @@ namespace Prashant
         static string m_autoIncrementValue;
         static bool keystoreFileExists;
         static Texture2D configScriptIcon;
+        static string toolVersion = "0.1";
 
         static void InitStyles()
         {
@@ -155,6 +156,7 @@ namespace Prashant
             EditorGUILayout.BeginVertical(styleHelpboxInner);
             EditorGUILayout.BeginVertical(styleHelpboxInner);
             EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField(toolVersion, GUILayout.MaxWidth(50));
             EditorGUILayout.LabelField("Project Details", titleLabel, new GUILayoutOption[0]);
             if (GUILayout.Button(configScriptIcon, GUILayout.MaxWidth(25), GUILayout.MaxHeight(25)))
             {
@@ -283,11 +285,10 @@ namespace Prashant
 
             EditorGUILayout.EndVertical();
         }
-        static string toolVersion = "0.2.1";
 
         static void CheckForUpdate()
         {
-            string repoURL = "https://api.github.com/repos/prashant-singh/scripts-manager-unity3d/releases";
+            string repoURL = "https://api.github.com/repos/prashant-singh/project-wizard/releases";
             WWW www = new WWW(repoURL);
             while (!www.isDone) ;
             if (www.isDone)
